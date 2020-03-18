@@ -95,4 +95,4 @@ const BurgerWrapper = styled.div`
   @media (min-width: 769px) {
     display: none;
   }
-`;
+`

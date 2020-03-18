@@ -13,6 +13,15 @@ export default function HomePage() {
                 navBarView={navBarView}
                 handleNavBar={handleNavBar}
             />
+            <Wrapper>
+                <StatsContainer />
+                <CountriesContainer />
+            </Wrapper>
         </>
     )
 }
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+`
