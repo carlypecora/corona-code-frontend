@@ -1,47 +1,47 @@
-import React from 'react'
-import styled from 'styled-components'
-import { useSpring, animated, config } from 'react-spring'
+import React from "react";
+import styled from "styled-components";
+import { useSpring, animated, config } from "react-spring";
 
-import BurgerMenu from './BurgerMenu'
-import CollapseMenu from './CollapseMenu'
+import BurgerMenu from "./BurgerMenu";
+import CollapseMenu from "./CollapseMenu";
 
 export default function NavBar(props) {
-    const barAnimation = useSpring({
-        from: { transform: 'translate3d(0, -10rem, 0)' },
-        transform: 'translate3d(0, 0, 0)',
-    })
+  const barAnimation = useSpring({
+    from: { transform: "translate3d(0, -10rem, 0)" },
+    transform: "translate3d(0, 0, 0)"
+  });
 
-    const linkAnimation = useSpring({
-        from: { transform: 'translate3d(0, 30px, 0)', opacity: 0 },
-        to: { transform: 'translate3d(0, 0, 0)', opacity: 1 },
-        delay: 800,
-        config: config.wobbly,
-    })
+  const linkAnimation = useSpring({
+    from: { transform: "translate3d(0, 30px, 0)", opacity: 0 },
+    to: { transform: "translate3d(0, 0, 0)", opacity: 1 },
+    delay: 800,
+    config: config.wobbly
+  });
 
-    return (
-        <>
-            <Navbar style={barAnimation}>
-                <FlexContainer>
-                    <NavLinks style={linkAnimation}>
-                        <a href="/">link n1</a>
-                        <a href="/">link n2</a>
-                        <a href="/">link n3</a>
-                        <a href="/">link n4</a>
-                    </NavLinks>
-                    <BurgerWrapper>
-                        <BurgerMenu
-                            navbarState={props.navbarState} 
-                            handleNavbar={props.handleNavbar}
-                        />
-                    </BurgerWrapper>
-                </FlexContainer>
-            </Navbar>
-            <CollapseMenu 
-                navbarState={props.navbarState} 
-                handleNavbar={props.handleNavbar}
+  return (
+    <>
+      <Navbar style={barAnimation}>
+        <FlexContainer>
+          <NavLinks style={linkAnimation}>
+            <a href="/">HQ</a>
+            <a href="/">Profile</a>
+            <a href="/">Message Board</a>
+            <a href="/">About</a>
+          </NavLinks>
+          <BurgerWrapper>
+            <BurgerMenu
+              navbarState={props.navbarState}
+              handleNavbar={props.handleNavbar}
             />
-        </>
-    )
+          </BurgerWrapper>
+        </FlexContainer>
+      </Navbar>
+      <CollapseMenu
+        navbarState={props.navbarState}
+        handleNavbar={props.handleNavbar}
+      />
+    </>
+  );
 }
 
 const Navbar = styled(animated.nav)`
@@ -52,16 +52,16 @@ const Navbar = styled(animated.nav)`
   background: #2d3436;
   z-index: 1;
   font-size: 1.4rem;
-`
+`;
 
 const FlexContainer = styled.div`
   max-width: 120rem;
   display: flex;
   margin: auto;
-  padding: 0 2rem;;
+  padding: 0 2rem;
   justify-content: space-between;
   height: 5rem;
-`
+`;
 
 const NavLinks = styled(animated.ul)`
   justify-self: end;
@@ -87,7 +87,7 @@ const NavLinks = styled(animated.ul)`
       display: none;
     }
   }
-`
+`;
 
 const BurgerWrapper = styled.div`
   margin: auto 0;
@@ -95,4 +95,4 @@ const BurgerWrapper = styled.div`
   @media (min-width: 769px) {
     display: none;
   }
-`
+`;
